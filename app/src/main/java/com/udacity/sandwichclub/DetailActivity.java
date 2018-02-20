@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -103,17 +104,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private String fromListToString(List<String> list) {
-        StringBuilder stringBuilder = new StringBuilder();
-        if (list != null) {
-            int listSize = list.size();
-
-            for (int i = 0; i < listSize; i++) {
-                stringBuilder.append(list.get(i));
-                if (i < listSize - 1)
-                    stringBuilder.append("\n");
-            }
-        }
-        return stringBuilder.toString();
+        return TextUtils.join(", ", list);
     }
 
     private boolean checkStringLength(String item) {
